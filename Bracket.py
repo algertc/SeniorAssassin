@@ -4,7 +4,7 @@ from Team import *
 def createMatchups():
     # generate objects from csv
     list = Team.generateArray()
-    # clone the array and shuffle
+    # clone the list and shuffle
     matchup = list.copy()
     random.shuffle(matchup)
     #Check for even/odd
@@ -12,7 +12,6 @@ def createMatchups():
     if len(list) % 2 != 0:
         oddnumber = True
         extraTeam = matchup[-1]
-        #print(extraTeam.name)
         matchup.pop(-1)
         list.remove(extraTeam)
         extraTeam.setTarget(Team("None/Bye", "N/A"))

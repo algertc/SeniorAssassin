@@ -8,9 +8,6 @@ class Team:
         self.number = number
         self.target = Team
 
-    def setTarget(self, target):
-        self.target = target
-
     @staticmethod
     def generateArray():
         import csv
@@ -20,4 +17,10 @@ class Team:
             for line in csvFile:
                 teamList.append(Team(str(line[0]), str(line[1])))
         return teamList
-        
+
+
+    def setTarget(self, target):
+        self.target = target
+
+    def getTarget(self):
+        return self.target.name

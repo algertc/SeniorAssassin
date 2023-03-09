@@ -11,15 +11,18 @@ import Bracket
 matchups = Bracket.createMatchups()
 
 #Notify Teams
-for i in matchups:
+for team in matchups:
     client = Client(account_sid, auth_token)
-    message = client.messages \
-        .create(
-        body=matchups[i].name + ", You are hunting: " + matchups[i].target,
-        from_='+18776411788',
-        to=matchups[i].number
-    )
+    try:
+        message = client.messages \
+            .create(
+            body=str(team.name) + ", You are hunting: " + team.getTarget(),
+            from_='+19257019524',
+            to=team.number
+        )
+        print(message.sid)
+    except:
+        print(team.name + ": Invalid Phone number")
 
-    print(message.sid)
 
 
